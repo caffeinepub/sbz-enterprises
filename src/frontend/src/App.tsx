@@ -180,13 +180,18 @@ function Navigation({ onScrollTo }: { onScrollTo: (id: string) => void }) {
             className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
             <img
-              src="/assets/uploads/WhatsApp-Image-2026-02-25-at-2.49.12-PM-1.jpeg"
+              src="/assets/uploads/ChatGPT-Image-Feb-26-2026-06_51_51-PM-2.png"
               alt="SBZ Enterprises"
               className="h-10 w-auto object-contain"
             />
-            <span className="hidden sm:inline-block text-xs font-body text-muted-foreground border-l border-border pl-2 ml-0.5">
-              International Trade Facilitation
-            </span>
+            <div className="hidden sm:flex flex-col justify-center border-l border-border pl-2 ml-0.5">
+              <span className="text-sm font-semibold font-heading text-foreground leading-tight tracking-wide">
+                SBZ ENTERPRISES
+              </span>
+              <span className="text-xs font-body text-muted-foreground leading-tight">
+                International Trade Facilitation
+              </span>
+            </div>
           </button>
 
           {/* Desktop Nav */}
