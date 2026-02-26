@@ -29,7 +29,7 @@
 
     /* muted: light stone */
     --muted: 0.945 0.01 75;
-    --muted-foreground: 0.48 0.015 60;
+    --muted-foreground: 0.38 0.018 60;
 
     /* accent: warm tan */
     --accent: 0.93 0.025 75;
@@ -43,8 +43,8 @@
     --success-foreground: 0.97 0 0;
 
     /* border: stone/tan */
-    --border: 0.875 0.018 75;
-    --input: 0.88 0.015 75;
+    --border: 0.845 0.022 75;
+    --input: 0.855 0.018 75;
     --ring: 0.32 0.072 150;
 
     /* charts */

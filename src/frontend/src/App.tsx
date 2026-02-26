@@ -34,7 +34,7 @@ const PRODUCT_SPECS = [
   { label: "Origin", value: "Ivory Coast (Côte d'Ivoire)" },
   { label: "Crop Year", value: "2026" },
   { label: "Quality", value: "Commercial Grade" },
-  { label: "Approx. KOR", value: "KOR 48 lbs" },
+  { label: "Approx. KOR", value: "KOR ~47–48 lbs/bag" },
   { label: "Packing", value: "Standard export bags" },
   { label: "Shipment", value: "Containerized bulk" },
 ];
@@ -42,7 +42,7 @@ const PRODUCT_SPECS = [
 const HERO_HIGHLIGHTS = [
   { label: "Crop Year", value: "2026" },
   { label: "Origin", value: "Ivory Coast (Côte d'Ivoire)" },
-  { label: "Quality", value: "Commercial Grade (KOR 48 lbs)" },
+  { label: "Quality", value: "Commercial Grade (KOR ~47–48 lbs/bag)" },
   { label: "Payment", value: "Irrevocable LC at Sight" },
   { label: "Inspection", value: "Third-Party Available (SGS)" },
   { label: "Shipment", value: "Bulk Containers Only" },
@@ -180,7 +180,7 @@ function Navigation({ onScrollTo }: { onScrollTo: (id: string) => void }) {
             className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
             <img
-              src="/assets/uploads/ChatGPT-Image-Feb-26-2026-06_51_51-PM-2.png"
+              src="/assets/uploads/SBZ-LOGO-1.jpeg"
               alt="SBZ Enterprises"
               className="h-10 w-auto object-contain"
             />
@@ -567,10 +567,10 @@ function QualitySection() {
           />
         </div>
 
-        <div className="flex justify-center">
+          <div className="flex justify-center">
           <div className="w-full max-w-3xl border border-border overflow-hidden bg-card" style={{ borderRadius: "2px" }}>
             <img
-              src="/assets/uploads/ChatGPT-Image-Feb-26-2026-06_51_51-PM-2.png"
+              src="/assets/uploads/SAMPLE-TEST-OUTERN-1-1.png"
               alt="Cutting test results for Raw Cashew Nuts, Crop Year 2026, Ivory Coast Origin"
               className="w-full h-auto block"
               loading="lazy"
@@ -850,8 +850,15 @@ function InquirySection() {
               Inquiry Submitted
             </h3>
             <p className="font-body text-sm text-muted-foreground leading-relaxed">
-              Your inquiry has been submitted. We will review and respond to
-              verified buyers promptly.
+              Your inquiry has been received and recorded. Our team will review
+              and respond to verified buyers promptly at{" "}
+              <a
+                href="mailto:sbzintl@gmail.com"
+                className="underline underline-offset-2 hover:text-foreground transition-colors"
+              >
+                sbzintl@gmail.com
+              </a>
+              .
             </p>
             <button
               type="button"
