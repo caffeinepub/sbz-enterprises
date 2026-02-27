@@ -23,7 +23,7 @@ const INITIAL_FORM: InquiryForm = {
   phoneNumber: "",
   quantityMT: "",
   destinationPort: "",
-  paymentTerms: "LC at Sight",
+  paymentTerms: "100% LC at Sight",
   message: "",
 };
 
@@ -34,18 +34,26 @@ const PRODUCT_SPECS = [
   { label: "Origin", value: "Ivory Coast (Côte d'Ivoire)" },
   { label: "Crop Year", value: "2026" },
   { label: "Quality", value: "Commercial Grade" },
-  { label: "Approx. KOR", value: "KOR ~47–48 lbs/bag" },
+  { label: "Approx. KOR", value: "~48 to 50 lbs (subject to availability)" },
+  { label: "Moisture", value: "7–8%" },
   { label: "Packing", value: "Standard export bags" },
-  { label: "Shipment", value: "Containerized bulk" },
+  { label: "Shipment", value: "Direct containerized bulk — back-to-back orders" },
+  { label: "Shipment Window", value: "March 15, 2026 onwards" },
+  { label: "Destination", value: "Direct from source to Indian ports" },
+  { label: "Price", value: "INR 160/kg — all inclusive (GST, customs clearance, delivery to factory)" },
+  { label: "Payment Terms", value: "100% LC at Sight  OR  100% Advance Payment" },
+  { label: "Inspection (Origin)", value: "SGS / Third-party inspection available — cost extra (at actuals)" },
+  { label: "Inspection (Indian Port)", value: "RBS inspection at Indian port acceptable — additional cost borne by buyer" },
+  { label: "Tolerance", value: "As per international RCN trade standards" },
 ];
 
 const HERO_HIGHLIGHTS = [
   { label: "Crop Year", value: "2026" },
   { label: "Origin", value: "Ivory Coast (Côte d'Ivoire)" },
-  { label: "Quality", value: "Commercial Grade (KOR ~47–48 lbs/bag)" },
-  { label: "Payment", value: "Irrevocable LC at Sight" },
-  { label: "Inspection", value: "Third-Party Available (SGS)" },
-  { label: "Shipment", value: "Bulk Containers Only" },
+  { label: "KOR", value: "48–50 lbs (subject to availability)" },
+  { label: "Payment", value: "100% LC at Sight or 100% Advance" },
+  { label: "Shipment Window", value: "From March 15, 2026" },
+  { label: "Price", value: "INR 160/kg all-inclusive" },
 ];
 
 const WHAT_WE_DO = [
@@ -582,6 +590,91 @@ function QualitySection() {
   );
 }
 
+// ─── Commercial Terms Section ─────────────────────────────────────────────────
+
+function CommercialTermsSection() {
+  const terms = [
+    {
+      icon: "₹",
+      title: "Price",
+      desc: "INR 160 per kg — all inclusive. Covers product, packing, GST, customs clearance, and delivery up to buyer's factory.",
+    },
+    {
+      icon: "🏦",
+      title: "Payment Options",
+      desc: "100% Irrevocable LC at Sight (preferred) OR 100% Advance Payment. No other payment structures accepted.",
+    },
+    {
+      icon: "🚢",
+      title: "Shipment",
+      desc: "Direct from source in Ivory Coast to Indian ports. Back-to-back orders. Shipment window opens March 15, 2026.",
+    },
+    {
+      icon: "🔍",
+      title: "Inspection",
+      desc: "SGS or third-party inspection at origin: available, cost extra at actuals. RBS inspection at Indian port: acceptable, additional cost borne by buyer.",
+    },
+    {
+      icon: "⚖️",
+      title: "Tolerance",
+      desc: "Weight and quality tolerance as per international RCN trade standards.",
+    },
+    {
+      icon: "📈",
+      title: "Investor Participation",
+      desc: "Investment participation in these transactions is accepted on a rotational, period-based, or season-based structure. Contact us directly for confidential discussion.",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-secondary section-divider">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-10">
+          <SectionLabel>Trade Parameters</SectionLabel>
+          <SectionTitle>Commercial Terms</SectionTitle>
+          <p className="font-body text-sm text-muted-foreground mt-3 max-w-2xl">
+            Key commercial parameters for the 2026 Ivory Coast RCN crop season. All terms subject to formal contract between buyer and seller.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {terms.map((term) => (
+            <div
+              key={term.title}
+              className={`flex gap-4 p-6 border border-border bg-card${term.title === "Investor Participation" ? " border-primary/30 bg-primary/5" : ""}`}
+              style={{ borderRadius: "2px" }}
+            >
+              <span className="text-xl shrink-0 mt-0.5 leading-none w-6 text-center">
+                {term.icon}
+              </span>
+              <div>
+                <h3 className="font-heading text-sm font-normal text-foreground mb-2">
+                  {term.title}
+                </h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                  {term.desc}
+                </p>
+                {term.title === "Investor Participation" && (
+                  <a
+                    href="mailto:sbzintl@gmail.com"
+                    className="inline-block mt-3 font-body text-xs uppercase tracking-[0.1em] text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
+                  >
+                    Contact for Details
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="font-body text-xs text-muted-foreground mt-6 italic border-l-2 border-border pl-4 max-w-3xl">
+          All pricing and terms indicative only. Final terms to be confirmed in a signed commercial contract. Tolerance as per international RCN trade standards.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // ─── How It Works Section ─────────────────────────────────────────────────────
 
 const HOW_IT_WORKS = [
@@ -1008,16 +1101,17 @@ function InquirySection() {
                 <label htmlFor="paymentTerms" className={labelBase}>
                   Preferred Payment Terms
                 </label>
-                <input
+                <select
                   id="paymentTerms"
                   name="paymentTerms"
-                  type="text"
                   value={form.paymentTerms}
-                  onChange={handleChange}
+                  onChange={(e) => setForm((prev) => ({ ...prev, paymentTerms: e.target.value }))}
                   className={inputBase}
                   style={{ borderRadius: "2px" }}
-                  placeholder="LC at Sight"
-                />
+                >
+                  <option value="100% LC at Sight">100% LC at Sight</option>
+                  <option value="100% Advance Payment">100% Advance Payment</option>
+                </select>
               </div>
 
               {/* Message */}
@@ -1327,6 +1421,7 @@ export default function App() {
         <WhatWeDoSection />
         <ProductSection />
         <QualitySection />
+        <CommercialTermsSection />
         <HowItWorksSection />
         <AuthenticitySection />
         <InquirySection />
